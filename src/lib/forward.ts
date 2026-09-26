@@ -178,7 +178,7 @@ export class EventForwarder {
           this.setupStation(station);
         });
       })
-      .catch()
+      .catch(() => {})
       .finally(() => {
         this.clients.driver.on("station added", (station: Station) => {
           this.clients.clients.forEach((client) => {
@@ -210,7 +210,7 @@ export class EventForwarder {
           this.setupDevice(device);
         });
       })
-      .catch()
+      .catch(() => {})
       .finally(() => {
         this.clients.driver.on("device added", (device: Device) => {
           this.clients.clients.forEach((client) => {
@@ -755,7 +755,7 @@ export class EventForwarder {
               0,
             );
           })
-          .catch();
+          .catch(() => {});
       },
     );
 
@@ -922,7 +922,7 @@ export class EventForwarder {
                 12,
               );
             })
-            .catch();
+            .catch(() => {});
         }
         if (result.customData !== undefined) {
           if (result.customData.property !== undefined) {
@@ -945,7 +945,7 @@ export class EventForwarder {
                   13,
                 );
               })
-              .catch();
+              .catch(() => {});
           } else if (
             result.customData.command !== undefined &&
             result.customData.command.name.startsWith("device")
@@ -972,7 +972,7 @@ export class EventForwarder {
                   13,
                 );
               })
-              .catch();
+              .catch(() => {});
           }
         }
       }
